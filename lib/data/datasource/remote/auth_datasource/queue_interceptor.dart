@@ -1,0 +1,173 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
+import 'package:inmac_app/common/toast/toast_common.dart';
+import 'package:inmac_app/data/datasource/local/secure_storage.dart';
+import 'package:inmac_app/domain/models/requests/refresh_token/refresh_token_request.dart';
+import 'package:inmac_app/domain/models/responses/access_token_expire_model/access_token_expire_model.dart';
+import 'package:inmac_app/domain/models/responses/refresh_token/refresh_token_response.dart';
+import 'package:inmac_app/utils/constants/strings.dart';
+
+
+bool showPopUpNoConnection = false;
+
+@Injectable()
+class QueueInterceptor extends QueuedInterceptor {
+  final SecureStorage _secureStorage;
+  final Dio dio;
+
+  QueueInterceptor(this.dio, this._secureStorage);
+
+  @override
+  void onError(DioError err, ErrorInterceptorHandler handler) async {
+    // final checkConnection = getIt<GetNetworkConnectionUseCase>();
+    final getSignUpInfo = await _secureStorage.getSignUpInfo();
+
+    if (showPopUpNoConnection) {
+      return handler.reject(err);
+    }
+    final statusCode = err.response?.statusCode;
+    log("### StatusCode : $statusCode");
+    log("### Error : ${err.response?.statusMessage}");
+    if (statusCode == 400) {
+      // showPopUpNoConnection = true;
+
+      // showToast("${err.response?.statusMessage}");
+      // showMessageDialog(
+      //   context,
+      //   err.response?.data,
+      //   barrierDismissible: false,
+      // ).then((value) => showPopUpNoConnection = false);
+      return handler.reject(err);
+    }
+
+    if (statusCode == 403) {
+      // await Future.wait([
+      //   _secureStorage.setAccessToken(""),
+      //   _secureStorage.setRefreshToken(""),
+      // ]);
+      return handler.reject(err);
+    }
+
+    if (statusCode == 502 || statusCode == 504) {
+      showPopUpNoConnection = true;
+      final String text;
+      switch (statusCode) {
+        case 502:
+          text = "Error 502";
+          break;
+        case 504:
+          text = "Error 504";
+          break;
+        default:
+          text = '';
+      }
+      showPopUpNoConnection = false;
+      return handler.reject(err);
+    }
+    if (!showPopUpNoConnection && err.error is SocketException) {
+      showPopUpNoConnection = true;
+      ToastCommon.showDIToast("Connect to network");
+      showPopUpNoConnection = false;
+      return handler.reject(err);
+    }
+
+    // result.fold((l) => debugPrint("$l"), (r) {
+    //   if (context != null &&
+    //       r != ConnectivityResult.mobile &&
+    //       r != ConnectivityResult.wifi) {
+    //     // showMessageDialog(context, LocaleKeys.you_need_to_connect_wifi_or_mobile_data);
+    //     return handler.reject(err);
+    //   }
+    // });
+    if (err.response?.statusCode == 401) {
+      debugPrint("${err.response!.data}");
+      final model = AccessTokenExpireModel.fromJson(err.response!.data);
+
+      /// Token expired
+      if (model.info?.message?.toLowerCase().contains('jwt'.toLowerCase()) ??
+          false) {
+        return _refreshToken(err, handler);
+      }
+
+      /// No token provide
+      if (model.info?.message
+              ?.toLowerCase()
+              .contains('No auth token'.toLowerCase()) ??
+          false) {
+        return handler.next(err);
+      }
+    }
+    return handler.next(err);
+  }
+
+  Future<void> _refreshToken(
+      DioError err, ErrorInterceptorHandler handler) async {
+    final refreshToken = await _secureStorage.getRefreshToken();
+    final accessToken = await _secureStorage.getAccessToken();
+    if (refreshToken != null) {
+      try {
+        final result = await dio.post(
+          '${Const.baseApi}api/v1/auth/refresh-access-token',
+          data: RefreshTokenRequest(
+                  refreshToken: refreshToken, accessToken: accessToken!)
+              .toJson(),
+        );
+        final RefreshTokenResponse res =
+            RefreshTokenResponse.fromJson(result.data!);
+        await Future.wait([
+          _secureStorage.setAccessToken(res.data.accessToken),
+          _secureStorage.setRefreshToken(res.data.refreshToken),
+        ]);
+        log('### new tokens ${res.data.accessToken}\n${res.data.refreshToken}');
+        return retry(err, handler, res.data.accessToken);
+      } catch (e) {
+        return refreshTokenExpire(err, handler);
+      }
+    }
+    return handler.next(err);
+  }
+
+  Future<void> retry(
+      DioError err, ErrorInterceptorHandler handler, String accessToken) async {
+    final requestOptions = err.requestOptions;
+    requestOptions.headers["Authorization"] = 'Bearer $accessToken';
+    final options = Options(
+      method: requestOptions.method,
+      headers: requestOptions.headers,
+    );
+    try {
+      final cloneReq = await dio.request<dynamic>(
+        requestOptions.baseUrl + requestOptions.path,
+        data: requestOptions.data,
+        queryParameters: requestOptions.queryParameters,
+        options: options,
+      );
+      return handler.resolve(cloneReq);
+    } catch (e) {
+      if (e is DioError) {
+        return _refreshToken(e, handler);
+      }
+      return handler.next(err);
+    }
+  }
+
+  Future<void> refreshTokenExpire(
+      DioError e, ErrorInterceptorHandler handler) async {
+    // await getIt<LogOutUseCase>().call(NoParams());
+    // if (e.response?.data.toString().toLowerCase().contains('refresh') ??
+    //     false) {
+    // final ctx = navKey.currentContext;
+    // if (ctx != null) {
+    //   BlocProvider.of<UserBloc>(ctx).add(const LogOut());
+    // }
+    // } else {
+    return handler.next(e);
+    // }
+  }
+}
