@@ -5,6 +5,14 @@ class AppColors {
   static const qrColor = Color(0xffCBD5E1);
   static const primary = Color(0xFF000000);
 
+  static const white = Color(0xFFFFFFFF);
+
+  static const red = Colors.red;
+
+  static const hint = Color(0xFF999999);
+
+  static const blue = Color(0xFF470ECB);
+
   static final backgroundDialog = const Color(0xFF060616).withOpacity(0.9);
 
   static const gradientGoldBorderGachaResult = LinearGradient(colors: [

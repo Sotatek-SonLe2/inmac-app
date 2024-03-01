@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:inmac_app/presentation/screens/sign_in/sign_in_screen.dart';
 import 'package:inmac_app/presentation/screens/splash/splash_screen.dart';
 
 part 'app_router.gr.dart';
@@ -16,7 +17,8 @@ class AppRouter extends _$AppRouter {
         // AutoRoute(path: '/pre-sign-in', page: PreSignInRoute.page),
         // AutoRoute(path: '/sign-in', page: SignInRoute.page),
         // AutoRoute(path: '/sign-up', page: SignUpRoute.page),
-        // AutoRoute(path: '/home', page: HomeRoute.page),
+        AutoRoute(path: '/splash', page: SplashRoute.page),
+        AutoRoute(path: '/sign_in', page: SignInRoute.page, initial: true),
       ];
 // final List<AutoRoute> routes = [
 //   AutoRoute(page: SignInScreen),

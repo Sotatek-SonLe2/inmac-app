@@ -24,14 +24,10 @@ class MyApp extends StatelessWidget {
             return OKToast(
               child: MaterialApp.router(
                 title: 'Inmac',
-                // routerConfig: appRouter.config(
-                //   navigatorObservers: () => [MyObserver()],
-                // ),
                 debugShowCheckedModeBanner: false,
                 routerDelegate: appRouter.delegate(),
                 scaffoldMessengerKey: scaffoldMessengerKey,
-                // routeInformationParser: appRouter.defaultRouteParser(),
-                // builder: EasyLoading.init(),
+                routeInformationParser: appRouter.defaultRouteParser(),
                 theme: ThemeData(
                   fontFamily: 'Geologica',
                   primarySwatch: Colors.blue,

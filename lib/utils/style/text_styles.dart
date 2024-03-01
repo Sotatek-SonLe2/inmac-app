@@ -44,4 +44,28 @@ class TextStyles {
 
   static const bold24black = TextStyle(
       fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.black);
+
+  /// ----------WHITE----------
+
+  static const w400White12 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 12, color: AppColors.white);
+
+  static const w600White40 = TextStyle(
+      fontWeight: FontWeight.w600, fontSize: 40, color: AppColors.white);
+
+  /// ----------RED----------
+
+  static const w600Red12 = TextStyle(
+      fontWeight: FontWeight.w600, fontSize: 12, color: AppColors.red);
+
+  /// ----------GREY----------
+
+  static const w400Grey12 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 12, color: AppColors.hint);
+
+  static const grey12 = TextStyle(
+      fontWeight: FontWeight.w500, fontSize: 12, color: AppColors.hint);
+
+  static const w600grey12 = TextStyle(
+      fontWeight: FontWeight.w600, fontSize: 12, color: AppColors.hint);
 }
