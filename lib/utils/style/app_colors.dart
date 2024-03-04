@@ -13,6 +13,12 @@ class AppColors {
 
   static const blue = Color(0xFF470ECB);
 
+  static const greenAccent = Color(0xFF4ecbc3);
+
+  static const grey = Color(0xFF31313b);
+
+  static const btnColor = Color(0xFF23232a);
+
   static final backgroundDialog = const Color(0xFF060616).withOpacity(0.9);
 
   static const gradientGoldBorderGachaResult = LinearGradient(colors: [

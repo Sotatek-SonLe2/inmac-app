@@ -6,6 +6,10 @@ import 'package:inmac_app/utils/resources/resources.dart';
 void main() {
   test('ics assets test', () {
     expect(File(Ics.arrowLeft).existsSync(), isTrue);
+    expect(File(Ics.icHome).existsSync(), isTrue);
+    expect(File(Ics.icList).existsSync(), isTrue);
+    expect(File(Ics.icReport).existsSync(), isTrue);
+    expect(File(Ics.icTag).existsSync(), isTrue);
     expect(File(Ics.icVisible).existsSync(), isTrue);
     expect(File(Ics.keyLock).existsSync(), isTrue);
     expect(File(Ics.person).existsSync(), isTrue);

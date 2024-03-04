@@ -68,4 +68,9 @@ class TextStyles {
 
   static const w600grey12 = TextStyle(
       fontWeight: FontWeight.w600, fontSize: 12, color: AppColors.hint);
+
+  /// ----------GREEN----------
+
+  static const w400Green12 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 12, color: AppColors.greenAccent);
 }

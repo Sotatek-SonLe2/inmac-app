@@ -13,7 +13,7 @@ class IMButton extends StatelessWidget {
     this.height,
     this.color,
     this.disabled = false,
-    this.radius = 6,
+    this.radius = 16,
     this.gradient,
     this.iconRight,
     Key? key,
@@ -50,7 +50,7 @@ class IMButton extends StatelessWidget {
               elevation: 0,
               disabledBackgroundColor: AppColors.white,
               backgroundColor: gradient == null
-                  ? color ?? (disabled ? AppColors.white : AppColors.blue)
+                  ? color ?? (disabled ? AppColors.white : AppColors.greenAccent)
                   : null,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(radius),
@@ -75,8 +75,7 @@ class IMButton extends StatelessWidget {
                         color: AppColors.hint) :
                     const TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.white)),
+                        color: AppColors.btnColor)),
                   ),
                   const SizedBox(
                     width: 4,

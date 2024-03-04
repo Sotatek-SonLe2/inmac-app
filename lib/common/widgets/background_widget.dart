@@ -9,6 +9,7 @@ class BackgroundWidget extends StatelessWidget {
     this.resizeToAvoidBottomInset = true,
     this.extendBody = false,
     this.scaffoldKey,
+    this.color = const Color(0xFF1c1c20)
   }) : super(key: key);
 
   final Widget? child;
@@ -17,6 +18,7 @@ class BackgroundWidget extends StatelessWidget {
   final bool resizeToAvoidBottomInset;
   final bool extendBody;
   final Key? scaffoldKey;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,7 @@ class BackgroundWidget extends StatelessWidget {
         // ),
         Scaffold(
           key: scaffoldKey,
-          backgroundColor: const Color(0xFF333333),
+          backgroundColor: color,
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
           bottomNavigationBar: bottomNavigationBar,
           appBar: appBar,

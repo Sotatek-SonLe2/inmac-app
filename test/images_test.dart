@@ -5,6 +5,7 @@ import 'package:inmac_app/utils/resources/resources.dart';
 
 void main() {
   test('images assets test', () {
+    expect(File(Images.logo).existsSync(), isTrue);
     expect(File(Images.notificationHow).existsSync(), isTrue);
     expect(File(Images.notificationWhat).existsSync(), isTrue);
     expect(File(Images.plus).existsSync(), isTrue);

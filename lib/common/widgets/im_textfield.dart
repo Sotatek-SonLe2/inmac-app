@@ -34,7 +34,7 @@ class IMTextField extends StatefulWidget {
         this.prefixIcon,
         this.onTapComplete,
         this.contentPadding,
-        this.borderColor = Colors.grey})
+        this.borderColor = AppColors.grey})
       : super(key: key);
 
   final String? labelText;
@@ -129,7 +129,7 @@ class _IMTextFieldState extends State<IMTextField> {
         )
             : const SizedBox(),
         TextField(
-          style: widget.textStyle ?? TextStyles.w600grey12,
+          style: widget.textStyle ?? TextStyles.w400White12,
           controller: controller,
           focusNode: widget.focusNode,
           onChanged: widget.onChanged,
@@ -144,7 +144,7 @@ class _IMTextFieldState extends State<IMTextField> {
           decoration: InputDecoration(
             // isDense: true,
             filled: true,
-            fillColor: AppColors.white,
+            fillColor: AppColors.grey,
             contentPadding: widget.contentPadding,
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelText: widget.showLabel ? "" : widget.labelText,
@@ -153,7 +153,7 @@ class _IMTextFieldState extends State<IMTextField> {
                 : TextStyles.w600Red12,
             // hintText: hintText != null ? translate(hintText!) : null,
             hintText: widget.hintText,
-            hintStyle: widget.hintStyle ?? TextStyles.w400Grey12,
+            hintStyle: widget.hintStyle ?? TextStyles.w400White12,
             suffix: widget.suffix,
             suffixIcon: widget.suffixIcon,
             border: border,

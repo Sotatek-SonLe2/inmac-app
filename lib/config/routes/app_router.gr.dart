@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BottomNavigationRoute.name: (routeData) {
+      final args = routeData.argsAs<BottomNavigationRouteArgs>(
+          orElse: () => const BottomNavigationRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BottomNavigationScreen(
+          key: args.key,
+          pageIndex: args.pageIndex,
+        ),
+      );
+    },
     SignInRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -28,6 +39,44 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BottomNavigationScreen]
+class BottomNavigationRoute extends PageRouteInfo<BottomNavigationRouteArgs> {
+  BottomNavigationRoute({
+    Key? key,
+    int? pageIndex,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BottomNavigationRoute.name,
+          args: BottomNavigationRouteArgs(
+            key: key,
+            pageIndex: pageIndex,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BottomNavigationRoute';
+
+  static const PageInfo<BottomNavigationRouteArgs> page =
+      PageInfo<BottomNavigationRouteArgs>(name);
+}
+
+class BottomNavigationRouteArgs {
+  const BottomNavigationRouteArgs({
+    this.key,
+    this.pageIndex,
+  });
+
+  final Key? key;
+
+  final int? pageIndex;
+
+  @override
+  String toString() {
+    return 'BottomNavigationRouteArgs{key: $key, pageIndex: $pageIndex}';
+  }
 }
 
 /// generated route for

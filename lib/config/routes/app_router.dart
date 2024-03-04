@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:inmac_app/presentation/screens/bottom_bar/bottom_navigation_screen.dart';
 import 'package:inmac_app/presentation/screens/sign_in/sign_in_screen.dart';
 import 'package:inmac_app/presentation/screens/splash/splash_screen.dart';
 
@@ -19,6 +21,7 @@ class AppRouter extends _$AppRouter {
         // AutoRoute(path: '/sign-up', page: SignUpRoute.page),
         AutoRoute(path: '/splash', page: SplashRoute.page),
         AutoRoute(path: '/sign_in', page: SignInRoute.page, initial: true),
+        AutoRoute(page: BottomNavigationRoute.page),
       ];
 // final List<AutoRoute> routes = [
 //   AutoRoute(page: SignInScreen),
