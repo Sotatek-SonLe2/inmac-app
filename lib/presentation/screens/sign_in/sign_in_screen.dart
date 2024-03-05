@@ -46,7 +46,7 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(width: 4,),
                   const IMText(keyText: "|", style: TextStyles.w400Grey12,),
                   const SizedBox(width: 4,),
-                  IMTextButton(text: "Forgot Password", textStyle: TextStyles.w600grey12, onPressed: () {},),
+                  IMTextButton(text: "Forgot Password", textStyle: TextStyles.w600Grey12, onPressed: () {},),
                 ],
               )
             ],
