@@ -1,23 +1,62 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const black = Color(0xFF000000);
-  static const qrColor = Color(0xffCBD5E1);
-  static const primary = Color(0xFF000000);
+  static const black1 = Color(0xFF0D0D0E);
+  static const black2 = Color(0xFF1C1C20);
+  static const black3 = Color(0xFF23232A);
+  static const black4 = Color(0xFF31313B);
+  static const black5 = Color(0xFF42424D);
+  static const black6 = Color(0xFF50505D);
+  static const black7 = Color(0xFF676A7B);
+  static const black8 = Color(0xFF737885);
 
-  static const white = Color(0xFFFFFFFF);
+  static const grey1 = Color(0xFFA4A7B0);
+  static const grey2 = Color(0xFFB3B6BE);
+  static const grey3 = Color(0xFFC5C8D0);
+  static const grey4 = Color(0xFFCED0D4);
+  static const grey5 = Color(0xFFDFE0E2);
 
-  static const red = Colors.red;
+  static const white1 = Color(0xFFFFFFFF);
+  static const white2 = Color(0xFFFCFCFD);
+  static const white3 = Color(0xFFF8F9FB);
+  static const white4 = Color(0xFFF1F3F6);
 
-  static const hint = Color(0xFF999999);
+  static const mint1 = Color(0xFF68D0CA);
+  static const mint2 = Color(0xFF4ECBC3);
 
-  static const blue = Color(0xFF470ECB);
+  static const zippy1 = Color(0xFF68D0CA);
+  static const zippy2 = Color(0xFF54CB91);
+  static const zippy3 = Color(0xFF71D461);
+  static const zippy4 = Color(0xFF58DAE3);
+  static const zippy5 = Color(0xFF72CEF5);
+  static const zippy6 = Color(0xFF108CFF);
+  static const zippy7 = Color(0xFF729FF5);
+  static const zippy8 = Color(0xFF807DFF);
+  static const zippy9 = Color(0xFFD074FC);
+  static const zippy10 = Color(0xFF8C47FD);
 
-  static const greenAccent = Color(0xFF4ecbc3);
+  static const brightZippy1 = Color(0xFFF4FCFB);
+  static const brightZippy2 = Color(0xFFF2FDF8);
+  static const brightZippy3 = Color(0xFFF5FDF0);
+  static const brightZippy4 = Color(0xFFECFCFD);
+  static const brightZippy5 = Color(0xFFEFFAFF);
+  static const brightZippy6 = Color(0xFFEDF6FF);
+  static const brightZippy7 = Color(0xFFECF3FF);
+  static const brightZippy8 = Color(0xFFF7F6FF);
+  static const brightZippy9 = Color(0xFFFCF5FF);
+  static const brightZippy10 = Color(0xFFF9F5FE);
 
-  static const grey = Color(0xFF31313b);
+  static const red1 = Color(0xFFFF576B);
+  static const lightRed2 = Color(0xFFFFF4F4);
 
-  static const btnColor = Color(0xFF23232a);
+
+
+  static const btnColorBlack = black3;
+  static const btnColorMint = mint2;
+  static const btnColorGrey = white4;
+  static const btnColorDimedLight = black7;
+  static const btnColorDimedDark = white4;
+  static const btnColorRed = red1;
 
   static final backgroundDialog = const Color(0xFF060616).withOpacity(0.9);
 
