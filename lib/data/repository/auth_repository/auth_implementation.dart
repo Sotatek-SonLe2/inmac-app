@@ -1,16 +1,13 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:inmac_app/config/failures/failure.dart';
 import 'package:inmac_app/data/datasource/local/get_storage_datasource.dart';
 import 'package:inmac_app/data/datasource/local/secure_storage.dart';
 import 'package:inmac_app/data/datasource/remote/auth_datasource/auth_datasource.dart';
-import 'package:inmac_app/domain/repository/auth_repository/auth_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'auth_repository.dart';
 
-// @Injectable(as: IAuthRepository)
+
 class AuthImplementation extends IAuthRepository {
   final SecureStorage _secureStorage;
   final AuthDataSource _authDataSource;

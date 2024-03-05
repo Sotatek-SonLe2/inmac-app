@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:inmac_app/common/widgets/background_widget.dart';
 import 'package:inmac_app/common/widgets/im_bottom_navigator_home.dart';
 import 'package:inmac_app/common/widgets/im_text.dart';
+import 'package:inmac_app/presentation/screens/home/home_screen.dart';
 import 'package:inmac_app/utils/style/app_colors.dart';
 
 @RoutePage()
@@ -19,19 +20,13 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   final PageController pageController = PageController();
 
   final List<Widget> screens = [
-    const BackgroundWidget(
-      color: AppColors.white,
-      child: IMText(keyText: "HOME SCREEN",),
-    ),
+    const HomeScreen(),
     const SizedBox(),
     const SizedBox(),
     const SizedBox()
   ];
 
-  Widget currentScreen = const BackgroundWidget(
-    color: AppColors.white,
-    child: Center(child: IMText(keyText: "HOME SCREEN", textAlign: TextAlign.center,)),
-  );
+  Widget currentScreen = const HomeScreen();
 
   @override
   void initState() {

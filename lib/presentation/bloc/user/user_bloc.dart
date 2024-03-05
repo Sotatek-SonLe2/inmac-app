@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inmac_app/data/repository/auth_repository/auth_repository.dart';
 import 'package:inmac_app/domain/models/responses/user/user_info_model.dart';
-import 'package:inmac_app/domain/repository/auth_repository/auth_repository.dart';
 import 'package:inmac_app/locator.dart';
 import 'package:inmac_app/presentation/bloc/user/user_event.dart';
 import 'package:inmac_app/presentation/bloc/user/user_state.dart';

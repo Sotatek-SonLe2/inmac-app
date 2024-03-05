@@ -25,8 +25,6 @@ class QueueInterceptor extends QueuedInterceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) async {
-    // final checkConnection = getIt<GetNetworkConnectionUseCase>();
-    final getSignUpInfo = await _secureStorage.getSignUpInfo();
 
     if (showPopUpNoConnection) {
       return handler.reject(err);
@@ -35,22 +33,14 @@ class QueueInterceptor extends QueuedInterceptor {
     log("### StatusCode : $statusCode");
     log("### Error : ${err.response?.statusMessage}");
     if (statusCode == 400) {
-      // showPopUpNoConnection = true;
-
-      // showToast("${err.response?.statusMessage}");
-      // showMessageDialog(
-      //   context,
-      //   err.response?.data,
-      //   barrierDismissible: false,
-      // ).then((value) => showPopUpNoConnection = false);
       return handler.reject(err);
     }
 
     if (statusCode == 403) {
-      // await Future.wait([
-      //   _secureStorage.setAccessToken(""),
-      //   _secureStorage.setRefreshToken(""),
-      // ]);
+      await Future.wait([
+        _secureStorage.setAccessToken(""),
+        _secureStorage.setRefreshToken(""),
+      ]);
       return handler.reject(err);
     }
 
@@ -76,15 +66,6 @@ class QueueInterceptor extends QueuedInterceptor {
       showPopUpNoConnection = false;
       return handler.reject(err);
     }
-
-    // result.fold((l) => debugPrint("$l"), (r) {
-    //   if (context != null &&
-    //       r != ConnectivityResult.mobile &&
-    //       r != ConnectivityResult.wifi) {
-    //     // showMessageDialog(context, LocaleKeys.you_need_to_connect_wifi_or_mobile_data);
-    //     return handler.reject(err);
-    //   }
-    // });
     if (err.response?.statusCode == 401) {
       debugPrint("${err.response!.data}");
       final model = AccessTokenExpireModel.fromJson(err.response!.data);
@@ -159,15 +140,6 @@ class QueueInterceptor extends QueuedInterceptor {
 
   Future<void> refreshTokenExpire(
       DioError e, ErrorInterceptorHandler handler) async {
-    // await getIt<LogOutUseCase>().call(NoParams());
-    // if (e.response?.data.toString().toLowerCase().contains('refresh') ??
-    //     false) {
-    // final ctx = navKey.currentContext;
-    // if (ctx != null) {
-    //   BlocProvider.of<UserBloc>(ctx).add(const LogOut());
-    // }
-    // } else {
     return handler.next(e);
-    // }
   }
 }
