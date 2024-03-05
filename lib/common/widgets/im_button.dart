@@ -41,16 +41,16 @@ class IMButton extends StatelessWidget {
           height: height ?? 56,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius),
-            border: Border.all(color: borderColor ?? (disabled ? AppColors.hint : AppColors.blue)),
+            border: Border.all(color: borderColor ?? (disabled ? AppColors.mint1 : AppColors.brightZippy1)),
             gradient: gradient,
           ),
           child: ElevatedButton(
             onPressed: disabled ? null : onPressed,
             style: ElevatedButton.styleFrom(
               elevation: 0,
-              disabledBackgroundColor: AppColors.white,
+              disabledBackgroundColor: AppColors.white1,
               backgroundColor: gradient == null
-                  ? color ?? (disabled ? AppColors.white : AppColors.greenAccent)
+                  ? color ?? (disabled ? AppColors.white1 : AppColors.mint1)
                   : null,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(radius),
@@ -72,10 +72,10 @@ class IMButton extends StatelessWidget {
                     const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.hint) :
+                        color: AppColors.mint1) :
                     const TextStyle(
                         fontSize: 16,
-                        color: AppColors.btnColor)),
+                        color: AppColors.btnColorMint)),
                   ),
                   const SizedBox(
                     width: 4,
@@ -84,7 +84,7 @@ class IMButton extends StatelessWidget {
                     IMIcon(
                       iconRight!,
                       width: 18,
-                      color: AppColors.primary,
+                      color: AppColors.black1,
                     ),
                 ],
               ),

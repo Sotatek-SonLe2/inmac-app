@@ -19,8 +19,8 @@ class AppRouter extends _$AppRouter {
         // AutoRoute(path: '/pre-sign-in', page: PreSignInRoute.page),
         // AutoRoute(path: '/sign-in', page: SignInRoute.page),
         // AutoRoute(path: '/sign-up', page: SignUpRoute.page),
-        AutoRoute(path: '/splash', page: SplashRoute.page),
-        AutoRoute(path: '/sign_in', page: SignInRoute.page, initial: true),
+        AutoRoute(path: '/splash', page: SplashRoute.page, initial: true),
+        AutoRoute(path: '/sign_in', page: SignInRoute.page),
         AutoRoute(page: BottomNavigationRoute.page),
       ];
 // final List<AutoRoute> routes = [

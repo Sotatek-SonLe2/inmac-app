@@ -34,7 +34,7 @@ class IMTextField extends StatefulWidget {
         this.prefixIcon,
         this.onTapComplete,
         this.contentPadding,
-        this.borderColor = AppColors.grey})
+        this.borderColor = AppColors.grey1})
       : super(key: key);
 
   final String? labelText;
@@ -144,7 +144,7 @@ class _IMTextFieldState extends State<IMTextField> {
           decoration: InputDecoration(
             // isDense: true,
             filled: true,
-            fillColor: AppColors.grey,
+            fillColor: AppColors.grey1,
             contentPadding: widget.contentPadding,
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelText: widget.showLabel ? "" : widget.labelText,

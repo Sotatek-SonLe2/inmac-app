@@ -11,7 +11,7 @@ class ToastCommon {
         textStyle: TextStyles.w400Black11,
         textAlign: TextAlign.start,
         position: const ToastPosition(align: Alignment.bottomCenter, offset: -80.0),
-        backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.black1,
         margin: const EdgeInsets.symmetric(horizontal: 24),
         radius: 6,
         textPadding: const EdgeInsets.all(10));

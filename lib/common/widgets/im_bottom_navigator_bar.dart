@@ -43,8 +43,8 @@ class IMBottomNavigatorBar extends StatelessWidget {
                   keyText: element.label,
                   style: TextStyle(
                     color: index == items.indexOf(element)
-                        ? AppColors.black
-                        : AppColors.white,
+                        ? AppColors.black1
+                        : AppColors.white1,
                     fontSize: 10,
                     fontWeight: FontWeight.w400,
                     // height: 18 / 12,
@@ -58,10 +58,10 @@ class IMBottomNavigatorBar extends StatelessWidget {
     return BottomNavigationBar(
       elevation: 5,
       currentIndex: index,
-      selectedItemColor: AppColors.black,
+      selectedItemColor: AppColors.black1,
       selectedFontSize: 0,
-      backgroundColor: AppColors.white,
-      unselectedItemColor: AppColors.black,
+      backgroundColor: AppColors.white1,
+      unselectedItemColor: AppColors.black1,
       unselectedFontSize: 0,
       onTap: onTap,
       type: BottomNavigationBarType.fixed,

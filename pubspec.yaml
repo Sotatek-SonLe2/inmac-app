@@ -90,19 +90,23 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: Geologica
+    - family: Pretendard
       fonts:
-        - asset: assets/fonts/Geologica-Bold.ttf
+        - asset: assets/fonts/PretendardStd-Black.otf
+        - asset: assets/fonts/PretendardStd-Bold.otf
           weight: 700
-        - asset: assets/fonts/Geologica-Medium.ttf
+        - asset: assets/fonts/PretendardStd-ExtraBold.otf
+        - asset: assets/fonts/PretendardStd-ExtraLight.otf
+        - asset: assets/fonts/PretendardStd-Light.otf
+        - asset: assets/fonts/PretendardStd-Medium.otf
           weight: 500
-        - asset: assets/fonts/Geologica-SemiBold.ttf
+        - asset: assets/fonts/PretendardStd-Regular.otf
+          weight: 500
+        - asset: assets/fonts/PretendardStd-SemiBold.otf
           weight: 600
-        - asset: assets/fonts/Geologica-Thin.ttf
+        - asset: assets/fonts/PretendardStd-Thin.otf
           weight: 400
-        - asset: assets/fonts/Geologica-Regular.ttf
-          weight: 500
-        - asset: assets/fonts/Montserrat-Italic.ttf
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

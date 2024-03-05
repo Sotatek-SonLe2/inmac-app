@@ -36,20 +36,20 @@ class _IMBottomNavigatorHomeState extends State<IMBottomNavigatorHome> {
       },
       items: [
         ItemBottomNav(
-            icon: Ics.icHome,
-            iconActive: Ics.icHome,
+            icon: Ics.icHomeLine,
+            iconActive: Ics.icHomeFill,
             label: 'Home'),
         ItemBottomNav(
             icon: Ics.icList,
             iconActive: Ics.icList,
             label: ''),
         ItemBottomNav(
-            icon: Ics.icTag,
-            iconActive: Ics.icTag,
+            icon: Ics.icTagLine,
+            iconActive: Ics.icTagFill,
             label: ''),
         ItemBottomNav(
-            icon: Ics.icReport,
-            iconActive: Ics.icReport,
+            icon: Ics.icReportLine,
+            iconActive: Ics.icReportFill,
             label: ''),
       ],
     );

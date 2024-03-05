@@ -70,10 +70,10 @@ class AppColors {
     Color(0xFFFFFEE5)
   ], begin: Alignment.bottomLeft, end: Alignment.topRight);
 
-  static const blueGradient = LinearGradient(
-      colors: [primary, qrColor],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight);
+  // static const blueGradient = LinearGradient(
+  //     colors: [primary, qrColor],
+  //     begin: Alignment.topLeft,
+  //     end: Alignment.bottomRight);
   static LinearGradient gradientWhiteBorderLeftToRight = LinearGradient(
       colors: [Colors.white.withOpacity(0), Colors.white.withOpacity(0.2)],
       begin: Alignment.centerLeft,

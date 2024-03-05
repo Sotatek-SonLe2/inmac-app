@@ -20,7 +20,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
 
   final List<Widget> screens = [
     const BackgroundWidget(
-      color: AppColors.white,
+      color: AppColors.white1,
       child: IMText(keyText: "HOME SCREEN",),
     ),
     const SizedBox(),
@@ -29,7 +29,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   ];
 
   Widget currentScreen = const BackgroundWidget(
-    color: AppColors.white,
+    color: AppColors.white1,
     child: Center(child: IMText(keyText: "HOME SCREEN", textAlign: TextAlign.center,)),
   );
 
